@@ -1,19 +1,18 @@
-
-<div class="ui three doubling stackable cards">
-    <div class="ui card">
-      <div class="image">
-        <div class="ui placeholder">
-          <div class="square image"></div>
-        </div>
-      </div>
-      <div class="content">
-        <div>
-            <p>{{pregunta}}</p>
-        </div>
-      </div>
-      <div class="extra content ui centered grid">
-        <div class="ui primary button" [routerLink]="['/sports']">Si</div>
-        <div class="ui button" [routerLink]="['/sports']">No</div>
+<div class="ui three doubling stackable cards border-style">
+  <div class="ui card" style="width: 500px; height: 250px; margin: 0;">
+    <div class="image bg-dark">
+      <div class="ui placeholder">
+        <div class="square image"></div>
       </div>
     </div>
+    <div class="content d-flex justify-content-center align-items-center">
+      <div>
+          <p>{{pregunta}}</p>
+      </div>
+    </div>
+    <div class="extra content ui centered grid bg-dark">
+      <div class="ui inverted green basic button" [routerLink]="['/sports']">Si</div>
+      <div class="ui inverted red basic button" [routerLink]="['/sports']">No</div>
+    </div>
   </div>
+</div>

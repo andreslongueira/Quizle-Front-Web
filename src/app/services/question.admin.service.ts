@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class QuestionAdminService {
 
-  private API_URI = 'http://10.1.201.26:3000/quizle/';
+  private API_URI = 'http://192.168.1.108:3000/quizle/';
 
   constructor(private http: HttpClient) { }
 
