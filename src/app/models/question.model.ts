@@ -2,7 +2,8 @@ export interface Question{
     category: String,
     questionText: String,
     answer: Boolean,
-    order: Number
+    order: Number,
+    _id: String
 }
 
 
@@ -11,7 +12,8 @@ export interface categoryQuestion{
     geographyQuestion: Question,
     historyQuestion: Question,
     artQuestion:Question,
-    sportsQuestion:Question
+    sportsQuestion:Question,
+    _id: String
 }
 
 

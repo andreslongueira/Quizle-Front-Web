@@ -30,7 +30,7 @@ export class StorageService {
     this.dayquestionArray.push(dayquestion.questions.historyQuestion)
     this.dayquestionArray.push(dayquestion.questions.artQuestion)
     this.dayquestionArray.push(dayquestion.questions.sportsQuestion)
-    this.storage.setItem("answer", JSON.stringify(this.answerArray)) 
+    this.storage.setItem("questions", JSON.stringify(this.dayquestionArray)) 
   }
 
   public getItem(itemKey: string): string {
@@ -41,10 +41,12 @@ export class StorageService {
     return item;
   }
 
-
-  public getArrayQuestion(position : number): Question{
-    return this.dayquestionArray[position]
+  public getItemQuestion(position: number): Question {
+    let itemQuestion: any = this.storage.getItem("questions");
+    this.dayquestionArray =  JSON.parse(itemQuestion)
+    return this.dayquestionArray[position];
   }
+
 
   public limpiarStorage(): void {
     this.storage.clear();
