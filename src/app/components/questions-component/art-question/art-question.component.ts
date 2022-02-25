@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionAdminService } from '../../../services/question.admin.service';
+import { StorageService } from 'src/app/services/storage.service';
+
 
 @Component({
   selector: 'app-art-question',
@@ -7,38 +8,33 @@ import { QuestionAdminService } from '../../../services/question.admin.service';
   styleUrls: ['./art-question.component.css']
 })
 export class ArtQuestionComponent implements OnInit {
-
-  public lista: any[] = []
-  public listaImp: any[] = []
+ 
   public pregunta: string = ""
+  public questionId: string = ""
+  public answer: Boolean = false
+  public postion: number = 0
 
 
-  constructor(private questionAdminService: QuestionAdminService) { }
+  constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
-    this.getDayQuestions()
+    this.getQuestion()
   }
 
 
-  public getDayQuestions():void{
-    this.questionAdminService.getQuestions().subscribe(res => {
-      if (res.resp == "ok") {
-        this.lista = res.allDayQuestions
-        
-        this.lista.forEach(i => {
-          this.listaImp.push(i.questions)
-        });
-
-       this.pregunta = this.listaImp[this.listaImp.length-1].artQuestion.questionText
-
-        
-      } else {
-        console.log(res.text);
-      }
-    }, err => {
-      console.log(err);
-    })
-
+  public getQuestion():void{
+  
   }
+
+  public getQuestionId(){
+  }
+
+
+  public saveAnswer():void{
+    this.storageService.saveLocalAnswer(this.questionId,this.answer)
+  }
+
+
+
 
 }

@@ -13,10 +13,14 @@ import { ArtQuestionComponent } from './components/questions-component/art-quest
 import { HistoryQuestionComponent } from './components/questions-component/history-question/history-question.component';
 import { GeographyQuestionComponent } from './components/questions-component/geography-question/geography-question.component';
 import { SportsQuestionComponent } from './components/questions-component/sports-question/sports-question.component';
+import { HomeComponentComponent } from './components/home-component/home-component.component';
+import { ResultComponentComponent } from './components/result-component/result-component.component';
 
 
 //Services
-import { QuestionAdminService } from './services/question.admin.service';
+
+import { RulesService } from './services/rules.service';
+import { QuestionService } from './services/question.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { QuestionAdminService } from './services/question.admin.service';
     ArtQuestionComponent,
     HistoryQuestionComponent,
     GeographyQuestionComponent,
-    SportsQuestionComponent
+    SportsQuestionComponent,
+    HomeComponentComponent,
+    ResultComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,8 @@ import { QuestionAdminService } from './services/question.admin.service';
     HttpClientModule
   ],
   providers: [
-    QuestionAdminService
+    QuestionService,
+    RulesService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-<div class="ui three doubling stackable cards border-style">
+<div class="ui three doubling stackable cards">
     <div class="ui card " style="width: 500px; height: 250px; margin: 0;">
       <div class="image bg-dark">
         <div class="ui placeholder">
@@ -11,8 +11,8 @@
         </div>
       </div>
       <div class="extra content ui centered grid bg-dark">
-        <div class="ui inverted green basic button" [routerLink]="['/geography']">Si</div>
-        <div class="ui inverted red basic button" [routerLink]="['/geography']">No</div>
+        <div class="ui inverted green basic button" (click)="answer=true; saveAnswer()" [routerLink]="['/geography']">Si</div>
+        <div class="ui inverted red basic button" (click)="answer=false; saveAnswer()" [routerLink]="['/geography']">No</div>
       </div>
     </div>
   </div>

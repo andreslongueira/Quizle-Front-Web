@@ -1,0 +1,22 @@
+<h1 >Quizle</h1>
+
+
+
+
+<div class="ui card">
+    <div class="content">
+      <div class="ui middle aligned divided list" *ngFor="let item of lista, index as id">
+        <div class="item">
+            <div class="content d-flex justify-content-center">
+              <p class="font-weight-light">{{id + 1 }}.  {{item.ruleText}}</p> 
+            </div>
+          </div>
+    </div>
+    </div>
+    <div class="extra content d-flex justify-content-center">
+        <button class="ui primary button" [routerLink]="['/science']">PLAY</button>
+    </div>
+  </div>
+
+
+
