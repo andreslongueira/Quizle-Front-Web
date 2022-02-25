@@ -10,13 +10,13 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class ScienceQuestionComponent implements OnInit {
   
-  public pregunta: String = ""
+  public questionText: String = ""
   public questionId: String = ""
   public answer: Boolean = false
   public postion: number = 0
 
 
-  constructor(private storageService: StorageService, private ScienceQuestion: Question) { }
+  constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.getQuestion()
@@ -24,12 +24,14 @@ export class ScienceQuestionComponent implements OnInit {
 
 
   public getQuestion():void{
-    this.ScienceQuestion = this.storageService.getItemQuestion(this.postion)
+    var scienceQuestion: Question = this.storageService.getItemQuestion(this.postion)
+    this.questionText = scienceQuestion.questionText
+    this.questionId = scienceQuestion._id
   }
 
 
   public saveAnswer():void{
-    this.storageService.saveLocalAnswer(this.ScienceQuestion._id, this.answer)
+    this.storageService.saveLocalAnswer(this.questionId, this.answer)
   }
 
 

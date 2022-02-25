@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from 'src/app/models/question.model';
 import { StorageService } from 'src/app/services/storage.service';
 
 
@@ -9,10 +10,10 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class SportsQuestionComponent implements OnInit {
  
-  public pregunta: string = ""
-  public questionId: string = ""
+  public questionText: String = ""
+  public questionId: String = ""
   public answer: Boolean = false
-  public postion: number = 0
+  public postion: number = 4
 
 
   constructor(private storageService: StorageService) { }
@@ -23,17 +24,15 @@ export class SportsQuestionComponent implements OnInit {
 
 
   public getQuestion():void{
-  
-  }
-
-  public getQuestionId(){
+    var sportsQuestion: Question = this.storageService.getItemQuestion(this.postion)
+    this.questionText = sportsQuestion.questionText
+    this.questionId = sportsQuestion._id
   }
 
 
   public saveAnswer():void{
-    this.storageService.saveLocalAnswer(this.questionId,this.answer)
+    this.storageService.saveLocalAnswer(this.questionId, this.answer)
   }
-
 
 
 

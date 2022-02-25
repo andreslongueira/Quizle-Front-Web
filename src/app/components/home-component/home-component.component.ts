@@ -18,12 +18,12 @@ export class HomeComponentComponent implements OnInit {
   public pregunta: string = ""
   
 
-  constructor(private rulesService : RulesService, private storageService : StorageService, private questionService : QuestionService, private questions : dayQuestions) { }
+  constructor(private rulesService : RulesService, private storageService : StorageService, private questionService : QuestionService) { }
 
   ngOnInit(): void {
+    this.storageService.limpiarStorage()
     this.getRules()
     this.getQuestionAPI()
-    this.saveLocalQuestions()
   }
 
   
@@ -43,7 +43,8 @@ export class HomeComponentComponent implements OnInit {
   public getQuestionAPI():void{
     this.questionService.getQuestions().subscribe(res => {
       if (res.resp == "ok") {
-        this.questions = { questions : res.questions }
+        var questions: dayQuestions = { questions : res.questions }
+        this.saveLocalQuestions(questions)
       } else {
         console.log(res.error);
       }
@@ -53,8 +54,8 @@ export class HomeComponentComponent implements OnInit {
  
   }
 
-  public saveLocalQuestions():void{
-    this.storageService.saveLocalQuestion(this.questions)
+  public saveLocalQuestions(questions: dayQuestions):void{
+    this.storageService.saveLocalQuestion(questions)
   }
 
 
